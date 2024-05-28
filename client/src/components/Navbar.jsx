@@ -10,13 +10,13 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      <div className="md:flex-[0.5] flex-initial justify-center items-center">
+      <div className="flex flex-initial justify-between md:justify-center  items-center">
         <img
           src="./images/logo.png"
           alt="KRYPT"
           className="w-32 cursor-pointer"
         />
-        <ul className="text-white hidden md:flex list-none flex-row justify-between items-center flex-initial">
+        <ul className="text-white hidden md:!flex list-none flex-row justify-between items-center flex-initial">
           {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => {
             return <NavbarItem key={item + index} title={item} />;
           })}
@@ -45,11 +45,14 @@ const Navbar = () => {
             flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in"
             >
               <li className="text-xl w-full my-2">
-                <AiOutlineClose onClick={() => setToggleMenu(false)} />
+                <AiOutlineClose
+                  onClick={() => setToggleMenu(false)}
+                  className="cursor-pointer"
+                />
               </li>
               {["Market", "Exchange", "Tutorials", "Wallets"].map(
                 (item, index) => (
-                  <NavBarItem
+                  <NavbarItem
                     key={item + index}
                     title={item}
                     classprops="my-2 text-lg"

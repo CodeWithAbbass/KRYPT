@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import Loader from "./Loader";
+import { TransactionContext } from "../context/TransactionContext";
 const commonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-white";
 const Input = ({ ...rest }) => (
@@ -13,9 +14,8 @@ const Input = ({ ...rest }) => (
 );
 
 const Welcome = () => {
-  const ConnectWallet = () => {
-    console.log("Connect Wallet Pending");
-  };
+  const { valconnectWalletue } = useContext(TransactionContext); // { value: "test" }
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -33,7 +33,7 @@ const Welcome = () => {
           <button
             type="button"
             className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
-            onClick={ConnectWallet}
+            onClick={() => connectWallet()}
           >
             <p className="text-white text-base font-semibold">Connect Wallet</p>
           </button>
